@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>NeutralinoJs sample app</title>
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+        <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    
+            @media only screen {
+                html {
+                    min-height: 100%;
+                    background: 0 0
+                }
+            }
+    
+            @media only screen and (max-width: 610px) {
+                table.body img {
+                    width: auto;
+                    height: auto
+                }
+    
+                table.body center {
+                    min-width: 0 !important
+                }
+    
+                table.body .container {
+                    width: 100% !important
+                }
+    
+                table.body .columns {
+                    height: auto !important;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    padding-left: 10px !important;
+                    padding-right: 10px !important
+                }
+    
+                table.body .columns .columns {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important
+                }
+    
+                th.small-6 {
+                    display: inline-block !important;
+                    width: 50% !important
+                }
+    
+                th.small-12 {
+                    display: inline-block !important;
+                    width: 100% !important
+                }
+    
+                table.menu {
+                    width: 100% !important
+                }
+    
+                table.menu td,
+                table.menu th {
+                    width: auto !important;
+                    display: inline-block !important
+                }
+    
+                table.menu.vertical td,
+                table.menu.vertical th {
+                    display: block !important
+                }
+    
+                table.menu[align=center] {
+                    width: auto !important
+                }
+            }
+    
+            .main-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .card-container {
+                flex-grow: 1;
+                max-width: 600px;
+                width: 100%;
+            }
+
+            .hidden {
+              display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <button class="hidden" onclick="getManagedEndpoint();">
+                Get managed endpoint data
+            </button>
+            <div class="cards-container">
+                <h1>Customer information</h1>
+                <div class="card border-primary mb-3 card-container">
+                  <div class="card-header">Manual input</div>
+                  <div class="card-body">
+                    <form method="post">
+                      <div class="form-group">
+                          <label for="email" class="form-label">Customer's email address</label>
+                          <input
+                              type="email"
+                              class="form-control"
+                              id="email"
+                              name="email"
+                              aria-describedby="emailHelp"
+                              placeholder="Enter email"
+                              value=""
+                          >
+                          <small id="emailHelp" class="form-text text-muted">Bloomreach will return the user with this email.</small>
+                      </div>
+                      <input type="hidden" name="submitted" value="true">
+                      <div style="margin-top: 15px;" class="form-group">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                  </form>
+                  </div>
+              </div>
+                <div class="card border-primary mb-3 card-container">
+                    <div class="card-header">Customer</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Customer email:</b>&nbsp;
+                            <span id="customer-email"></span>
+                        </p>
+                        <p class="card-text">
+                            <b>Customer name:</b>&nbsp;
+                            <span id="customer-name"></span>
+                        </p>
+                        <p class="card-text">
+                            <b>CLTV:</b>&nbsp;
+                            <span id="customer-cltv"></span>
+                        </p>
+                        <p class="card-text">
+                          <b>Last purchase date:</b>&nbsp;
+                          <span id="customer-value"></span>
+                      </p>
+                        <p class="card-text">
+                            <b>Loyalty status:</b>&nbsp;
+                            <span id="loyalty-status"></span>
+                        </p>
+                        <p class="card-text">
+                            <b>Style affinity:</b>&nbsp;
+                            <span id="style-affinity"></span>
+                        </p>
+                        <p class="card-text">
+                            <b>Last purchase date:</b>&nbsp;
+                            <span id="last-purchase-date"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card border-primary mb-3 card-container">
+                    <div class="card-header">Last purchased products</div>
+                    <div class="card-body" id="last-purchased-products"></div>
+                </div>
+                <div class="card border-primary mb-3 card-container">
+                    <div class="card-header">Recommended items</div>
+                    <div class="card-body" id="recommended-items"></div>
+                </div>
+            </div>
+            <div class="alert alert-dismissible alert-danger hidden">
+                <strong>Oh snap!</strong> Something went wrong:
+                <span class="error-message"></span>
+                .
+            </div>
+        </div>
+        <!-- Neutralino.js client. This file is gitignored, 
+        because `neu update` typically downloads it.
+        Avoid copy-pasting it. 
+        -->
+        <script src="js/neutralino.js"></script>
+        <!-- Your app's source files -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
